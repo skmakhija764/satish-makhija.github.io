@@ -1,0 +1,1046 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Satish Kumar Makhija | Network Engineer & IT Support Specialist</title>
+    
+    <!-- Google Fonts & Font Awesome Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root {
+            --bg-primary: #0a0f1d;
+            --bg-secondary: #111827;
+            --bg-card: rgba(17, 24, 39, 0.7);
+            --bg-card-hover: rgba(31, 41, 55, 0.8);
+            --accent-cyan: #00f2fe;
+            --accent-blue: #4facfe;
+            --accent-purple: #7000ff;
+            --text-main: #f3f4f6;
+            --text-muted: #9ca3af;
+            --border-color: rgba(255, 255, 255, 0.08);
+            --glow-cyan: rgba(0, 242, 254, 0.25);
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-primary);
+            color: var(--text-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Subtle Background Grid */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: 
+                radial-gradient(circle at 15% 15%, rgba(0, 242, 254, 0.05) 0%, transparent 40%),
+                radial-gradient(circle at 85% 85%, rgba(112, 0, 255, 0.05) 0%, transparent 40%),
+                linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+            background-size: 100% 100%, 100% 100%, 40px 40px, 40px 40px;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        /* Typography & Utilities */
+        code, .tech-font {
+            font-family: 'Fira Code', monospace;
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-blue));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .section-title {
+            font-size: 2.2rem;
+            font-weight: 800;
+            margin-bottom: 3rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .section-title::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: linear-gradient(to right, var(--border-color), transparent);
+        }
+
+        .section-title span {
+            color: var(--accent-cyan);
+            font-family: 'Fira Code', monospace;
+            font-size: 1.2rem;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(10, 15, 29, 0.85);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border-color);
+            z-index: 1000;
+            padding: 1.2rem 0;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #fff;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo-tag {
+            color: var(--accent-cyan);
+            font-family: 'Fira Code', monospace;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-cyan);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding-top: 80px;
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.4rem 1rem;
+            background: rgba(0, 242, 254, 0.08);
+            border: 1px solid rgba(0, 242, 254, 0.2);
+            border-radius: 50px;
+            color: var(--accent-cyan);
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            font-family: 'Fira Code', monospace;
+        }
+
+        .badge .pulse {
+            width: 8px;
+            height: 8px;
+            background-color: var(--accent-cyan);
+            border-radius: 50%;
+            box-shadow: 0 0 10px var(--accent-cyan);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(0, 242, 254, 0.7); }
+            70% { transform: scale(1); box-shadow: 0 0 0 10px rgba(0, 242, 254, 0); }
+            100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(0, 242, 254, 0); }
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 1.2rem;
+            letter-spacing: -1px;
+        }
+
+        .hero h2 {
+            font-size: 1.5rem;
+            color: var(--text-muted);
+            font-weight: 500;
+            margin-bottom: 1.8rem;
+        }
+
+        .hero p {
+            color: var(--text-muted);
+            font-size: 1.05rem;
+            margin-bottom: 2.5rem;
+            max-width: 580px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1.2rem;
+            align-items: center;
+        }
+
+        .btn {
+            padding: 0.8rem 1.8rem;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            font-size: 0.95rem;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-blue));
+            color: #0a0f1d;
+            box-shadow: 0 4px 20px var(--glow-cyan);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 25px rgba(0, 242, 254, 0.4);
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--text-main);
+            border: 1px solid var(--border-color);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        /* Terminal Component */
+        .terminal-card {
+            background: #0d1117;
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+            font-family: 'Fira Code', monospace;
+        }
+
+        .terminal-header {
+            background: #161b22;
+            padding: 0.8rem 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .terminal-btn {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+
+        .btn-red { background-color: #ff5f56; }
+        .btn-yellow { background-color: #ffbd2e; }
+        .btn-green { background-color: #27c93f; }
+
+        .terminal-title {
+            color: var(--text-muted);
+            font-size: 0.8rem;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .terminal-body {
+            padding: 1.5rem;
+            font-size: 0.85rem;
+            color: #c9d1d9;
+            line-height: 1.7;
+        }
+
+        .terminal-line {
+            margin-bottom: 0.8rem;
+        }
+
+        .prompt { color: var(--accent-cyan); }
+        .cmd { color: #f8c555; }
+        .output { color: #8b949e; }
+        .success { color: #7ee787; }
+
+        /* Stats Strip */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+            margin-top: 4rem;
+            margin-bottom: 6rem;
+        }
+
+        .stat-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 1.5rem;
+            text-align: center;
+            backdrop-filter: blur(10px);
+        }
+
+        .stat-number {
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: var(--accent-cyan);
+            font-family: 'Fira Code', monospace;
+        }
+
+        .stat-label {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-top: 0.3rem;
+        }
+
+        /* Experience Section */
+        .experience {
+            padding: 6rem 0;
+        }
+
+        .timeline {
+            position: relative;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 2px;
+            height: 100%;
+            background: linear-gradient(to bottom, var(--accent-cyan), var(--accent-purple), transparent);
+        }
+
+        .timeline-item {
+            position: relative;
+            padding-left: 2.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .timeline-dot {
+            position: absolute;
+            left: -6px;
+            top: 0;
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background: var(--bg-primary);
+            border: 2px solid var(--accent-cyan);
+            box-shadow: 0 0 10px var(--accent-cyan);
+        }
+
+        .timeline-content {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 1.8rem;
+            transition: var(--transition);
+        }
+
+        .timeline-content:hover {
+            background: var(--bg-card-hover);
+            border-color: rgba(0, 242, 254, 0.3);
+            transform: translateX(5px);
+        }
+
+        .role-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 0.8rem;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .role-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #fff;
+        }
+
+        .company-name {
+            color: var(--accent-cyan);
+            font-weight: 600;
+            font-size: 1rem;
+        }
+
+        .date-badge {
+            font-family: 'Fira Code', monospace;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            background: rgba(255, 255, 255, 0.05);
+            padding: 0.3rem 0.8rem;
+            border-radius: 4px;
+        }
+
+        .responsibilities {
+            list-style: none;
+            margin-top: 1rem;
+        }
+
+        .responsibilities li {
+            position: relative;
+            padding-left: 1.4rem;
+            margin-bottom: 0.6rem;
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        .responsibilities li::before {
+            content: '▹';
+            position: absolute;
+            left: 0;
+            color: var(--accent-cyan);
+        }
+
+        /* Skills Matrix */
+        .skills {
+            padding: 6rem 0;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.8rem;
+        }
+
+        .skill-category {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 1.8rem;
+            backdrop-filter: blur(10px);
+        }
+
+        .category-header {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            margin-bottom: 1.2rem;
+        }
+
+        .category-header i {
+            font-size: 1.2rem;
+            color: var(--accent-cyan);
+        }
+
+        .category-header h3 {
+            font-size: 1.1rem;
+            font-weight: 700;
+        }
+
+        .tags-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem;
+        }
+
+        .tag {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid var(--border-color);
+            color: var(--text-main);
+            padding: 0.4rem 0.8rem;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            font-family: 'Fira Code', monospace;
+            transition: var(--transition);
+        }
+
+        .tag:hover {
+            border-color: var(--accent-cyan);
+            color: var(--accent-cyan);
+            background: rgba(0, 242, 254, 0.05);
+        }
+
+        /* Projects Section */
+        .projects {
+            padding: 6rem 0;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 1.8rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: var(--transition);
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(0, 242, 254, 0.3);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .project-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.2rem;
+        }
+
+        .folder-icon {
+            font-size: 1.8rem;
+            color: var(--accent-cyan);
+        }
+
+        .project-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 0.8rem;
+            color: #fff;
+        }
+
+        .project-desc {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Education & Certifications */
+        .edu-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+        }
+
+        .edu-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 1.8rem;
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .edu-icon {
+            width: 60px;
+            height: 60px;
+            background: rgba(0, 242, 254, 0.1);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: var(--accent-cyan);
+            flex-shrink: 0;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 6rem 0;
+            text-align: center;
+        }
+
+        .contact-box {
+            background: linear-gradient(135deg, rgba(17, 24, 39, 0.9), rgba(10, 15, 29, 0.9));
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 4rem 2rem;
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-box::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(to right, var(--accent-cyan), var(--accent-purple));
+        }
+
+        .contact-title {
+            font-size: 2.2rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+        }
+
+        .contact-desc {
+            color: var(--text-muted);
+            max-width: 500px;
+            margin: 0 auto 2.5rem auto;
+            font-size: 1rem;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        /* Footer */
+        footer {
+            padding: 2rem 0;
+            text-align: center;
+            border-top: 1px solid var(--border-color);
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 600px) {
+            .nav-links {
+                display: none;
+            }
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+            .section-title {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation Header -->
+    <nav>
+        <div class="container nav-container">
+            <a href="#" class="logo">
+                <span class="logo-tag">&lt;</span>Satish.NetEng<span class="logo-tag"> /&gt;</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Deployments</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="about">
+        <div class="container hero-content">
+            <div>
+                <div class="badge">
+                    <span class="pulse"></span> Active Operations & Network Support
+                </div>
+                <h1>Satish Kumar Makhija</h1>
+                <h2>Network Engineer & IT Support Specialist</h2>
+                <p>
+                    4+ years of hands-on enterprise experience optimizing critical telecom & IP infrastructure. Specialized in Fortinet SD-WAN, Cisco Routing/Switching, Optical Networks (DWDM/GPON), SolarWinds NMS, and high-availability enterprise environments.
+                </p>
+                <div class="hero-buttons">
+                    <a href="#contact" class="btn btn-primary">
+                        <i class="fa-solid fa-paper-plane"></i> Get in Touch
+                    </a>
+                    <a href="mailto:skmakhija764@gmail.com" class="btn btn-secondary">
+                        <i class="fa-solid fa-envelope"></i> Direct Email
+                    </a>
+                </div>
+            </div>
+
+            <!-- Terminal Component -->
+            <div class="terminal-card">
+                <div class="terminal-header">
+                    <div class="terminal-btn btn-red"></div>
+                    <div class="terminal-btn btn-yellow"></div>
+                    <div class="terminal-btn btn-green"></div>
+                    <div class="terminal-title">skmakhija@net-ops:~</div>
+                </div>
+                <div class="terminal-body">
+                    <div class="timeline-line">
+                        <span class="prompt">satish@core-router#</span> <span class="cmd">show system status</span>
+                    </div>
+                    <div class="output">
+                        STATUS: ONLINE <br>
+                        LOCATION: Karachi, Pakistan <br>
+                        ROLE: Technical Network Engineer @ Supernet <br>
+                        DEGREE: BS Telecommunication Engineering
+                    </div>
+                    <br>
+                    <div class="timeline-line">
+                        <span class="prompt">satish@core-router#</span> <span class="cmd">show core-stack --active</span>
+                    </div>
+                    <div class="output">
+                        [✔] Fortinet SD-WAN & Cisco Switch Stacks<br>
+                        [✔] GPON / EPON / DWDM / CWDM Systems<br>
+                        [✔] SolarWinds / PRTG / Huawei NMS<br>
+                        [✔] TCP/IP, VLANs, DNS, DHCP, OTRS
+                    </div>
+                    <br>
+                    <div class="timeline-line">
+                        <span class="prompt">satish@core-router#</span> <span class="cmd">ping sla-compliance</span>
+                    </div>
+                    <div class="success">
+                        64 bytes from 10.0.0.1: icmp_seq=1 ttl=64 time=0.042 ms<br>
+                        --- SLA Target: 99.99% Uptime Achieved ---
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Key Metrics Stats -->
+    <div class="container">
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-number">4+</div>
+                <div class="stat-label">Years Field Experience</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">99.9%</div>
+                <div class="stat-label">Network Availability SLA</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">5+</div>
+                <div class="stat-label">Telecom Technologies Managed</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">24/7</div>
+                <div class="stat-label">Incident Response Support</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Experience Section -->
+    <section class="experience" id="experience">
+        <div class="container">
+            <h2 class="section-title"><span>01.</span> Professional Experience</h2>
+            <div class="timeline">
+
+                <!-- Job 1 -->
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="role-header">
+                            <div>
+                                <div class="role-title">Technical Network Engineer</div>
+                                <div class="company-name">Supernet Global Limited</div>
+                            </div>
+                            <span class="date-badge">12/2025 - PRESENT</span>
+                        </div>
+                        <ul class="responsibilities">
+                            <li>Manage and support enterprise network solutions for corporate clients, ensuring high availability of critical infrastructure.</li>
+                            <li>Monitor core network systems to minimize downtime via proactive troubleshooting and rapid incident response.</li>
+                            <li>Configure and troubleshoot GPON, EPON, LTE, YahClick, and iDirect systems utilizing SANID technology.</li>
+                            <li>Diagnose LAN/WAN connectivity issues, hardware faults, and IP-related problems with thorough root cause analysis.</li>
+                            <li>Maintain rigorous SLA compliance and technical documentation across cross-functional teams.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Job 2 -->
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="role-header">
+                            <div>
+                                <div class="role-title">Network Support Engineer</div>
+                                <div class="company-name">Connect Communication</div>
+                            </div>
+                            <span class="date-badge">11/2023 - 02/2025</span>
+                        </div>
+                        <ul class="responsibilities">
+                            <li>Managed Layer 1 and Layer 2 enterprise switches and routers via SecureCRT.</li>
+                            <li>Monitored fiber link health (faults/cuts) and coordinated restoration with field operational teams.</li>
+                            <li>Evaluated optical performance (DWDM/CWDM) including Rx/Tx optical power values through OLP and switch ports using SolarWinds.</li>
+                            <li>Delivered 24/7 technical email and on-call network support to enterprise vendors, dealers, and end-users.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Job 3 -->
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="role-header">
+                            <div>
+                                <div class="role-title">Coordinator</div>
+                                <div class="company-name">Sybrid Pvt Ltd (StormFiber Campaign)</div>
+                            </div>
+                            <span class="date-badge">03/2023 - 07/2023</span>
+                        </div>
+                        <ul class="responsibilities">
+                            <li>Managed critical escalations forwarded by L1 Technical Support Engineers for StormFiber services.</li>
+                            <li>Supervised customer complaints ticket routing and assigned tasks across technical departments.</li>
+                            <li>Trained new network engineers on software systems, standard operational procedures, and client handling.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Job 4 -->
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="role-header">
+                            <div>
+                                <div class="role-title">Technical Support Engineer</div>
+                                <div class="company-name">Sybrid Pvt Ltd</div>
+                            </div>
+                            <span class="date-badge">09/2022 - 03/2023</span>
+                        </div>
+                        <ul class="responsibilities">
+                            <li>Troubleshot Network Hardware, Software, and Configuration settings for FTTH (ONT Huawei).</li>
+                            <li>Monitored network logs and GPON client traffic on Huawei NMS platform.</li>
+                            <li>Configured wired & wireless user equipment and resolved internet connectivity issues.</li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Matrix Section -->
+    <section class="skills" id="skills">
+        <div class="container">
+            <h2 class="section-title"><span>02.</span> Technical Core Competencies</h2>
+            <div class="skills-grid">
+
+                <div class="skill-category">
+                    <div class="category-header">
+                        <i class="fa-solid fa-network-wired"></i>
+                        <h3>Routing, Switching & SD-WAN</h3>
+                    </div>
+                    <div class="tags-container">
+                        <span class="tag">Fortinet SD-WAN</span>
+                        <span class="tag">Cisco Routers</span>
+                        <span class="tag">Cisco Switches</span>
+                        <span class="tag">Layer 1/2 Switching</span>
+                        <span class="tag">VLAN Configuration</span>
+                        <span class="tag">TCP/IP</span>
+                        <span class="tag">DHCP / DNS</span>
+                        <span class="tag">SecureCRT</span>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <div class="category-header">
+                        <i class="fa-solid fa-satellite-dish"></i>
+                        <h3>Telecom & Fiber Infrastructure</h3>
+                    </div>
+                    <div class="tags-container">
+                        <span class="tag">GPON / EPON</span>
+                        <span class="tag">DWDM / CWDM</span>
+                        <span class="tag">Huawei ONT / FTTH</span>
+                        <span class="tag">OLP Optical Power</span>
+                        <span class="tag">YahClick Satellite</span>
+                        <span class="tag">iDirect Systems</span>
+                        <span class="tag">SANID Tech</span>
+                        <span class="tag">LTE Connectivity</span>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <div class="category-header">
+                        <i class="fa-solid fa-chart-line"></i>
+                        <h3>Monitoring & Management (NMS)</h3>
+                    </div>
+                    <div class="tags-container">
+                        <span class="tag">SolarWinds</span>
+                        <span class="tag">PRTG Monitor</span>
+                        <span class="tag">Huawei NMS</span>
+                        <span class="tag">WinMTR</span>
+                        <span class="tag">Winbox</span>
+                        <span class="tag">OTRS Ticketing</span>
+                        <span class="tag">SLA Tracking</span>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <div class="category-header">
+                        <i class="fa-solid fa-server"></i>
+                        <h3>Systems & Enterprise IT Support</h3>
+                    </div>
+                    <div class="tags-container">
+                        <span class="tag">Active Directory</span>
+                        <span class="tag">Microsoft 365</span>
+                        <span class="tag">Windows Server</span>
+                        <span class="tag">Hardware Installation</span>
+                        <span class="tag">ITIL Support Standards</span>
+                        <span class="tag">Incident Response</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects / Deployments Section -->
+    <section class="projects" id="projects">
+        <div class="container">
+            <h2 class="section-title"><span>03.</span> Operations & Infrastructure Scope</h2>
+            <div class="projects-grid">
+
+                <div class="project-card">
+                    <div>
+                        <div class="project-top">
+                            <i class="fa-solid fa-shield-halved folder-icon"></i>
+                            <span class="date-badge">Enterprise</span>
+                        </div>
+                        <h3 class="project-title">SD-WAN & Multi-WAN Deployments</h3>
+                        <p class="project-desc">Deployment and continuous operational optimization of Fortinet SD-WAN solutions, enhancing high availability, load balancing, and failover support for corporate clients.</p>
+                    </div>
+                    <div class="tags-container">
+                        <span class="tag">Fortinet</span>
+                        <span class="tag">SD-WAN</span>
+                        <span class="tag">Security</span>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div>
+                        <div class="project-top">
+                            <i class="fa-solid fa-tower-cell folder-icon"></i>
+                            <span class="date-badge">Telecom</span>
+                        </div>
+                        <h3 class="project-title">Fiber Link Restoration & Monitoring</h3>
+                        <p class="project-desc">Implemented continuous fiber link tracking utilizing DWDM/CWDM and SolarWinds to monitor optical Rx/Tx power levels, ensuring minimal MTTR during physical fiber cuts.</p>
+                    </div>
+                    <div class="tags-container">
+                        <span class="tag">DWDM</span>
+                        <span class="tag">SolarWinds</span>
+                        <span class="tag">Fiber Ops</span>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div>
+                        <div class="project-top">
+                            <i class="fa-solid fa-satellite folder-icon"></i>
+                            <span class="date-badge">Hybrid Links</span>
+                        </div>
+                        <h3 class="project-title">Satellite & Remote Site Management</h3>
+                        <p class="project-desc">Configured and maintained GPON, EPON, LTE, YahClick, and iDirect systems using SANID technology for critical remote corporate nodes.</p>
+                    </div>
+                    <div class="tags-container">
+                        <span class="tag">GPON</span>
+                        <span class="tag">YahClick</span>
+                        <span class="tag">iDirect</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section class="container" style="margin-bottom: 6rem;">
+        <h2 class="section-title"><span>04.</span> Education</h2>
+        <div class="edu-grid">
+            <div class="edu-card">
+                <div class="edu-icon">
+                    <i class="fa-solid fa-graduation-cap"></i>
+                </div>
+                <div>
+                    <h3 style="font-size: 1.2rem; font-weight: 700;">Bachelor of Science in Telecommunication Engineering</h3>
+                    <p style="color: var(--accent-cyan); font-weight: 600;">Sir Syed University of Engineering and Technology</p>
+                    <p style="color: var(--text-muted); font-size: 0.9rem; margin-top: 0.2rem;">Graduated: 2018 - 2022 | Karachi, Pakistan</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="contact-box">
+                <h2 class="contact-title">Let's Connect</h2>
+                <p class="contact-desc">
+                    Whether you have an inquiry regarding network architecture, enterprise IT support, or engineering collaboration—feel free to reach out directly.
+                </p>
+                <div class="contact-links">
+                    <a href="mailto:skmakhija764@gmail.com" class="btn btn-primary">
+                        <i class="fa-solid fa-envelope"></i> skmakhija764@gmail.com
+                    </a>
+                    <a href="tel:03362606573" class="btn btn-secondary">
+                        <i class="fa-solid fa-phone"></i> (0336) 2606573
+                    </a>
+                </div>
+                <p style="margin-top: 2rem; color: var(--text-muted); font-size: 0.85rem;">
+                    <i class="fa-solid fa-location-dot"></i> Clifton, Karachi, Pakistan
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>© Satish Kumar Makhija. Designed for GitHub Pages deployment.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
